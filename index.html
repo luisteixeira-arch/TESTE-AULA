@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOUD | Faz o L</title>
+    <style>
+        /* Variáveis de Cores */
+        :root {
+            --loud-green: #28c136; /* Verde característico da LOUD */
+            --loud-neon: #00ff00;
+            --black: #000000;
+            --dark-gray: #0a0a0a;
+            --gradient-bg: linear-gradient(135deg, #000000 0%, #0d1f10 50%, #000000 100%);
+            --gradient-accent: linear-gradient(90deg, var(--loud-green) 0%, var(--loud-neon) 100%);
+        }
+
+        /* Reset Básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: var(--gradient-bg);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header e Navegação */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid var(--loud-green);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            font-style: italic;
+            letter-spacing: -2px;
+            color: transparent;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1rem;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--loud-neon);
+            text-shadow: 0 0 8px rgba(0, 255, 0, 0.6);
+        }
+
+        /* Seção Hero principal */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Efeito de brilho no fundo */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(40, 193, 54, 0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .highlight {
+            color: var(--loud-neon);
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #aaaaaa;
+            max-width: 600px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            background: var(--gradient-accent);
+            color: var(--black);
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); /* Corte estilo gaming */
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(40, 193, 54, 0.5);
+        }
+
+        /* Seção de Grid / Info */
+        .features {
+            padding: 5rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            background: var(--black);
+        }
+
+        .card {
+            background: linear-gradient(180deg, #111111 0%, #050505 100%);
+            border-top: 4px solid var(--loud-green);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-top: 4px solid var(--loud-neon);
+            box-shadow: 0 10px 30px rgba(0, 255, 0, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .card p {
+            color: #888888;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background: #000000;
+            border-top: 1px solid #1a1a1a;
+            color: #555555;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer span {
+            color: var(--loud-green);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">LOUD</div>
+        <nav>
+            <ul>
+                <li><a href="#">Esports</a></li>
+                <li><a href="#">Vestuário</a></li>
+                <li><a href="#">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Faz o <span class="highlight">L</span></h1>
+            <p>A maior organização de esports e estilo de vida do Brasil. Muito mais que um time, um movimento.</p>
+            <a href="#" class="btn">Conheça o Império</a>
+        </section>
+
+        <section class="features">
+            <div class="card">
+                <h3>Competitivo</h3>
+                <p>Dominando o cenário mundial. Nossas lines são forjadas na pressão e no talento bruto.</p>
+            </div>
+            <div class="card">
+                <h3>Lifestyle</h3>
+                <p>Dite as regras da moda urbana. Nossa linha de vestuário traz o verde neon para as ruas.</p>
+            </div>
+            <div class="card">
+                <h3>Comunidade</h3>
+                <p>A torcida mais barulhenta do mundo. Sem vocês, não existiria o barulho.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 <span>LOUD</span>. Todos os direitos reservados.
+    </footer>
+
+</body>
+</html>
